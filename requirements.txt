@@ -3,6 +3,4 @@ yagmail
 bs4
 requests
 pyjokes
-newspaper3k
-pywhatkit
 uvicorn
