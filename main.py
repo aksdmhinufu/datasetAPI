@@ -4,8 +4,7 @@ from bs4 import BeautifulSoup
 import requests
 import datetime
 import yagmail
-import pywhatkit
-import pywhatkit
+import pyjokes
 
 
 app = FastAPI()
@@ -235,15 +234,3 @@ def joke():
     html_content += "</body></html>"
     return HTMLResponse(content=html_content)
 
-@app.get('/message/{person}/{message}')
-def send_whatsapp_message(person, message):
-    response = []
-    if "dad" in person:
-        kit.sendwhatmsg_instantly("+19783056153", message.replace("+", ""))
-        response.append('Message sent!')
-
-    html_content = "<html><body>"
-    for i in response:
-        html_content += "<p>" + i + "</p>"
-    html_content += "</body></html>"
-    return HTMLResponse(content=html_content)
