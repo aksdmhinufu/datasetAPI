@@ -8,6 +8,13 @@ from newspaper import fulltext
 import newspaper
 import pywhatkit as kit
 import yagmail
+
+
+import os
+
+os.environ['DISPLAY'] = ':0'
+
+
 app = FastAPI()
 
 FROM_EMAIL = "thestockdude10@gmail.com"
