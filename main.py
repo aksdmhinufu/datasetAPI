@@ -2,7 +2,6 @@ from fastapi import FastAPI
 from fastapi.responses import HTMLResponse
 from bs4 import BeautifulSoup
 import requests
-import pyjokes
 import datetime
 from newspaper import fulltext
 import newspaper
