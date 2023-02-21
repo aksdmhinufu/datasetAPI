@@ -5,3 +5,4 @@ requests
 pyjokes
 newspaper3k
 pywhatkit
+uvicorn
