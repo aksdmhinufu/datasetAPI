@@ -4,4 +4,4 @@ bs4
 requests
 pyjokes
 uvicorn
-pywhatkit
+
