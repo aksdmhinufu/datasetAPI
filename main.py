@@ -3,8 +3,6 @@ from fastapi.responses import HTMLResponse
 from bs4 import BeautifulSoup
 import requests
 import datetime
-from newspaper import fulltext
-import newspaper
 import yagmail
 
 
