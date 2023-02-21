@@ -6,13 +6,9 @@ import pyjokes
 import datetime
 from newspaper import fulltext
 import newspaper
-import pywhatkit as kit
 import yagmail
 
 
-import os
-
-os.environ['DISPLAY'] = ':0'
 
 
 app = FastAPI()
@@ -168,36 +164,6 @@ def spelling(query):
     html_content = "<html><body>"
     for response in response:
        html_content += "<p>" + response + "</p>"
-    html_content += "</body></html>"
-    return HTMLResponse(content=html_content)
-
-@app.get('/news')
-def read_news():
-    response = []
-    MSNBC_paper = newspaper.build('https://www.msnbc.com/economy')
-    for article in MSNBC_paper.articles:
-        articleurl = article.url
-        html = requests.get(articleurl).text
-        text = fulltext(html)
-        text = text.replace("'", "")
-        response.append(text)
-
-    html_content = "<html><body>"
-    for i in response:
-        html_content += "<p>" + i + "</p>"
-    html_content += "</body></html>"
-    return HTMLResponse(content=html_content)
-
-@app.get('/message/{person}/{message}')
-def send_whatsapp_message(person, message):
-    response = []
-    if "dad" in person:
-        kit.sendwhatmsg_instantly("+19783056153", message.replace("+", ""))
-        response.append('Message sent!')
-
-    html_content = "<html><body>"
-    for i in response:
-        html_content += "<p>" + i + "</p>"
     html_content += "</body></html>"
     return HTMLResponse(content=html_content)
 
