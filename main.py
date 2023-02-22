@@ -58,7 +58,7 @@ def run_code(query_id):
     # Build HTML response
     html_content = "<html><body>"
     for result in results:
-        html_content += "<p>" + result + "</p>"
+        html_content += "<p, data=" + result + ">" + result + "</p>"
     html_content += "</body></html>"
     return HTMLResponse(content=html_content)
 
@@ -70,7 +70,7 @@ def joke():
 
     html_content = "<html><body>"
     for joke in results:
-        html_content += "<p>" + joke + "</p>"
+        html_content += "<p, data=" + joke + ">" + joke + "</p>"
     html_content += "</body></html>"
     return HTMLResponse(content=html_content)
 
@@ -131,7 +131,7 @@ def stock_price(query):
    html_content = "<html><body>"
    response = str(response)
    for response in response:
-       html_content += "<p>" + response + "</p>"
+       html_content += "<p, data=" + response + ">" + response + "</p>"
    html_content += "</body></html>"
    return HTMLResponse(content=html_content)
 
@@ -157,13 +157,13 @@ def spelling(query):
         response.append("Im sorry, I could not find how to spell your word")
     html_content = "<html><body>"
     for response in response:
-       html_content += "<p>" + response + "</p>"
+       html_content += "<p, data=" + response + ">" + response + "</p>"
     html_content += "</body></html>"
     return HTMLResponse(content=html_content)
 
     html_content = "<html><body>"
     for i in response:
-        html_content += "<p>" + i + "</p>"
+        html_content += "<p, data=" + i + ">" + i + "</p>"
     html_content += "</body></html>"
     return HTMLResponse(content=html_content)
 @app.get('/timer/{query}')
@@ -205,7 +205,7 @@ def countdown(query):
 
     html_content = "<html><body>"
     for my_timer in response:
-        html_content += "<p>" + str(my_timer) + "</p>"
+        html_content += "<p, data=" + str(my_timer) + ">" + str(my_timer) + "</p>"
     html_content += "</body></html>"
     return HTMLResponse(content=html_content)
 
@@ -221,6 +221,6 @@ def send_email(to_email, subject, content):
 
     html_content = "<html><body>"
     for response in response:
-        html_content += "<p>" + response + "</p>"
+        html_content += "<p, data=" + response + ">" + response + "</p>"
     html_content += "</body></html>"
     return HTMLResponse(content=html_content)
