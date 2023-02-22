@@ -2,11 +2,9 @@ from fastapi import FastAPI
 from fastapi.responses import HTMLResponse
 from bs4 import BeautifulSoup
 import requests
+import pyjokes
 import datetime
 import yagmail
-import pyjokes
-
-
 app = FastAPI()
 
 FROM_EMAIL = "thestockdude10@gmail.com"
@@ -163,6 +161,11 @@ def spelling(query):
     html_content += "</body></html>"
     return HTMLResponse(content=html_content)
 
+    html_content = "<html><body>"
+    for i in response:
+        html_content += "<p>" + i + "</p>"
+    html_content += "</body></html>"
+    return HTMLResponse(content=html_content)
 @app.get('/timer/{query}')
 def countdown(query):
     response = []
@@ -221,16 +224,3 @@ def send_email(to_email, subject, content):
         html_content += "<p>" + response + "</p>"
     html_content += "</body></html>"
     return HTMLResponse(content=html_content)
-
-@app.get('/joke')
-def joke():
-    results = []
-    joke = pyjokes.get_joke()
-    results.append(joke)
-
-    html_content = "<html><body>"
-    for joke in results:
-        html_content += "<p>" + joke + "</p>"
-    html_content += "</body></html>"
-    return HTMLResponse(content=html_content)
-
